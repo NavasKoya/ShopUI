@@ -28,7 +28,7 @@ class OrderListContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: Card(
         elevation: 8,
         shape: RoundedRectangleBorder(
@@ -79,8 +79,9 @@ class OrderListContainer extends StatelessWidget {
         Text(
           orderStatus,
           style: GoogleFonts.ubuntu(
-            color: orderStatus=="Pending" ?
-                    AppColors.yellow : orderStatus == "Shipped" ?
+            color: orderStatus=="pending" ?
+                    AppColors.yellow : orderStatus == "delivered" ?
+                    AppColors.green : orderStatus == "shipped" ?
                     AppColors.orange : AppColors.violet,
             fontWeight: FontWeight.bold
           ),
@@ -103,7 +104,7 @@ class OrderListContainer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: Text(
-            paymentStatus,
+            paymentStatus.toUpperCase(),
             style: GoogleFonts.ubuntu(
                 color: AppColors.green,
                 fontWeight: FontWeight.bold

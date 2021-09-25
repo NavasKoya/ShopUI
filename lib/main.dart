@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:singapore_company_task/pages/landing/landing_page.dart';
+import 'package:singapore_company_task/pages/login/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LandingPage(),
+      home: const LoginPage(),
+      // home: const LandingPage(),
       debugShowCheckedModeBanner: false,
     );
   }

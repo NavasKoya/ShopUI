@@ -8,6 +8,7 @@ const orderedImages = [
   "$imageBasePath/surf.png",
   "$imageBasePath/vita.png",
   "$imageBasePath/dettol.jpeg",
+  "$imageBasePath/fortune.png",
 ];
 
 const orderNumbers = [

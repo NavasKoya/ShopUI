@@ -167,7 +167,7 @@ class OrderAmountDetails extends StatelessWidget {
 
           const Divider(color: AppColors.black,),
 
-          _actionButtonWidget(),
+          _actionButtonWidget(context),
 
           const SizedBox(height: SizeUnits.kXLPadding),
         ],
@@ -175,11 +175,13 @@ class OrderAmountDetails extends StatelessWidget {
     );
   }
 
-  _actionButtonWidget() {
+  _actionButtonWidget(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         FlatButtonWidget(
+          boxWidth: _width*.4,
           text: "Reject Order",
           buttonColor: AppColors.orange,
           verticalPadding: SizeUnits.kStandardPadding,
@@ -187,14 +189,15 @@ class OrderAmountDetails extends StatelessWidget {
           textColor: AppColors.white
         ),
 
-        SizedBox(width: SizeUnits.kXLPadding),
+        const SizedBox(width: SizeUnits.kXLPadding),
 
         FlatButtonWidget(
-            text: "Accept Order",
-            buttonColor: AppColors.violet,
-            verticalPadding: SizeUnits.kStandardPadding,
-            horizontalPadding: SizeUnits.kXLPadding,
-            textColor: AppColors.white
+          boxWidth: _width*.4,
+          text: "Accept Order",
+          buttonColor: AppColors.violet,
+          verticalPadding: SizeUnits.kStandardPadding,
+          horizontalPadding: SizeUnits.kXLPadding,
+          textColor: AppColors.white
         ),
 
       ],

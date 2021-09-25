@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:singapore_company_task/constants/const_colors.dart';
 import 'package:singapore_company_task/constants/const_icons.dart';
 import 'package:singapore_company_task/constants/const_size.dart';
-import 'package:singapore_company_task/pages/order_list/order_list_page.dart';
+import 'package:singapore_company_task/pages/order_list/new_order_list_page.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -21,11 +21,13 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height*.2),
+        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height*.175),
         child: AppBar(
           backgroundColor: AppColors.white,
           flexibleSpace: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
+              SizedBox(height: SizeUnits.kXSPadding,),
               AppBarWidget(),
               SearchField()
             ],
@@ -39,13 +41,13 @@ class _LandingPageState extends State<LandingPage> {
 
   _viewSelectedPageWidget() {
     if(_currentIndex==1){
-      return const OrderListPage();
+      return const NewOrderListPage();
     } else if(_currentIndex==2){
       return Container();
     } else if(_currentIndex==3){
-      return Container(height: 100, width: 100, color: Colors.blue,);
+      return Container();
     } else if(_currentIndex==4){
-      return Container(height: 100, width: 100, color: Colors.blue,);
+      return Container();
     } else{
       return Container();
     }
@@ -72,25 +74,25 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag, color: AppColors.violet.withOpacity(.2)),
             label: "Orders",
-            activeIcon: const Icon(Icons.home, color: AppColors.violet,),
+            activeIcon: const Icon(Icons.shopping_bag, color: AppColors.violet,),
           ),
 
           BottomNavigationBarItem(
             icon: Icon(Icons.production_quantity_limits, color: AppColors.violet.withOpacity(.2)),
             label: "Products",
-            activeIcon: const Icon(Icons.home, color: AppColors.violet,),
+            activeIcon: const Icon(Icons.production_quantity_limits, color: AppColors.violet,),
           ),
 
           BottomNavigationBarItem(
             icon: Icon(Icons.list, color: AppColors.violet.withOpacity(.2)),
             label: "Manage",
-            activeIcon: const Icon(Icons.home, color: AppColors.violet,),
+            activeIcon: const Icon(Icons.list, color: AppColors.violet,),
           ),
 
           BottomNavigationBarItem(
             icon: Icon(Icons.person, color: AppColors.violet.withOpacity(.2)),
             label: "Accounts",
-            activeIcon: const Icon(Icons.home, color: AppColors.violet,),
+            activeIcon: const Icon(Icons.person, color: AppColors.violet,),
           ),
         ],
       ),
@@ -106,7 +108,7 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: SizeUnits.kStandardPadding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -144,7 +146,7 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: SizeUnits.kStandardPadding, vertical: SizeUnits.kStandardPadding),
       child: TextField(
         decoration: InputDecoration(
           hintText: "Order Id or Name",
