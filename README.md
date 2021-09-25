@@ -1,4 +1,4 @@
-# singapore_company_task
+# Shop UI
 
 A new Flutter project.
 
